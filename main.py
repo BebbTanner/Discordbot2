@@ -42,4 +42,14 @@ async def on_message(message):
         await specificChannel.send(message.content)
         await message.channel.send("Message forwarded!")
 
+@client.event
+async def fowardMessage(image):
+    """
+        If statement that will ignore the bots input.
+    """
+    if image.author == client.user:
+        return
+    
+
+
 client.run(TOKEN)
