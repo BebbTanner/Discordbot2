@@ -38,30 +38,5 @@ async def on_message(message):
         await specificChannel.send(message.content)
         await message.channel.send("Message forwarded!")
 
-#async def fowardMessage(image):
-    """
-        If statement that will ignore the bots input.
-    """
-#    if image.author == client.user:
-#        return
-    
-    """
-        This is an if statement should get the message sent from the quote bot
-    and send it to the quotes channel.
-
-        The ID on line 59 is the user id for the make it a quote bot.
-
-        make it a quote = 949479338275913799
-    """
-#    if image.author.id == 949479338275913799:
-    """
-            This is the channel ID for the bottesting channel.
-        """
-#        destinationId = client.get_channel(1387221514553921626)  
-
-    """
-            This should send the content to the destination channel.
-        """
-#        await destinationId.send(f'{image.content}')  
 
 client.run(TOKEN)
