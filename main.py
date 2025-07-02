@@ -2,6 +2,8 @@ from discordBot import botToken
 import discord
 
 TOKEN = botToken
+makeID = 949479338275913799
+testingID = 1387221514553921626
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -12,9 +14,7 @@ client = discord.Client(intents=intents)
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-"""
-    This is an event that will reply hello when a user types hello.
-"""
+
 @client.event
 async def on_message(message):
     """
