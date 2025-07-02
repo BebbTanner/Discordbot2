@@ -17,6 +17,10 @@ async def on_ready():
 """
 @client.event
 async def on_message(message):
+
+    """
+        make it a quote id token = 949479338275913799
+    """
     """
         If i remember correctly, this command keeps the bot from replying to itself.
     """
@@ -26,7 +30,7 @@ async def on_message(message):
     """
         This is a set of commands that will forward a message to a specific channel.
     """
-    if message.content.startswith('!forward'):
+    if message.content.startswith('forward this'):
         #the parameters has the id for the bot testing channel.
         specificChannel = client.get_channel(1387221514553921626)
     
