@@ -29,7 +29,11 @@ async def on_message(message):
     if message.content.startswith('!forward'):
         #the parameters has the id for the bot testing channel.
         specificChannel = client.get_channel(1387221514553921626)
-            
+    
+    """
+        This is just a confirmation message that will send telling the user that there
+    messages has been forwarded.
+    """
     if specificChannel:
         await specificChannel.send(message.content)
         await message.channel.send("Message forwarded!")
