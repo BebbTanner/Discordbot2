@@ -49,7 +49,16 @@ async def fowardMessage(image):
     """
     if image.author == client.user:
         return
-    
+    if image.author.id == 949479338275913799:
+        """
+            This is the channel ID for the quotes channel.
+        """
+        destinationId = client.get_channel(1309632891080413294)  
+
+        """
+            This should send the content to the destination channel.
+        """
+        await destinationId.send(f'{image.content}')  
 
 
 client.run(TOKEN)
