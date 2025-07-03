@@ -26,15 +26,19 @@ async def on_message(message):
         If the message content starts with "foward this", the bot will then foward the message
     to the bot testing channel.
     """
-    #if message.content.startswith('forward this'):
-    #    specificChannel = client.get_channel(1387221514553921626)
+    if message.content.startswith('forward this'):
+        specificChannel = client.get_channel(1387221514553921626)
     
     """
         This is is an if statement that will send the message in the previous if statement
     to the specified channel. In this case this is the bot testing channel.
     """
-    #if specificChannel:
-    #    await specificChannel.send(message.content)
+    if specificChannel:
+        await specificChannel.send(message.content)
+
+
+
+
 
     """
         This is a command that will forward and image in the bot testing channel.
