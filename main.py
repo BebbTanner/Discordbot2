@@ -10,13 +10,6 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
-"""
-    I believe that my forward image function goes here without using an event modifier.
-But it might need to go in the on_message event because I am detecting a message for it.
-
-Just kidding the attachement modifer is only able to be used in the on_message event.
-"""
-
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
@@ -24,8 +17,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-
-    specificChannel = 1387221514553921626
 
     #Keeps the bot from getting stuck in and infinite loop.
     if message.author == client.user:
