@@ -25,11 +25,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    """
-        Variables that are being used in this local scope.
-    """
-
-
     #Keeps the bot from getting stuck in and infinite loop.
     if message.author == client.user:
         return
