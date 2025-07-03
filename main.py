@@ -1,9 +1,7 @@
-from discordBot import botToken
+from discordBot import *
 import discord
 
 TOKEN = botToken
-makeID = 949479338275913799
-testingID = 1387221514553921626 
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -30,7 +28,7 @@ async def on_message(message):
         specificChannel = client.get_channel(1387221514553921626)
         await specificChannel.send(message.content)
     
-    
+
     """
         This is a command that will forward and image in the bot testing channel.
     """
@@ -38,6 +36,6 @@ async def on_message(message):
         for attachment in message.attachments:
             if attachment.content_type.startswith('image'):
                 targetChannel = client.get_channel(1387221514553921626)
-                await targetChannel.send(attachment.url)
+                await targetChannel.reply(attachment.url)
 
 client.run(TOKEN)
