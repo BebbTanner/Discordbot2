@@ -2,7 +2,8 @@ from discordBot import botToken
 import discord
 
 TOKEN = botToken
-
+makeID = 949479338275913799
+testingID = 1387221514553921626 
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -27,20 +28,18 @@ async def on_message(message):
     """
         Variables that are being used in this local scope.
     """
-    makeID = 949479338275913799
-    testingID = 1387221514553921626 
 
-    """
-        If i remember correctly, this command keeps the bot from replying to itself.
-    """
+
+    #Keeps the bot from getting stuck in and infinite loop.
     if message.author == client.user:
         return
     
     """
-        This is a set of commands that will forward a message to a specific channel.
+        If the message content starts with "foward this", the bot will then foward the message
+    to the bot testing channel and also send th
     """
     if message.content.startswith('forward this'):
-        specificChannel = client.get_channel(testingID)
+        specificChannel = client.get_channel(1387221514553921626)
     
     """
         This is just a confirmation message that will send telling the user that there
@@ -48,7 +47,6 @@ async def on_message(message):
     """
     if specificChannel:
         await specificChannel.send(message.content)
-        await message.channel.send("Message forwarded!")
 
 
 client.run(TOKEN)
