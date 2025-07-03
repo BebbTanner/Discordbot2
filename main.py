@@ -2,8 +2,7 @@ from discordBot import botToken
 import discord
 
 TOKEN = botToken
-makeID = 949479338275913799
-testingID = 1387221514553921626
+
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -24,6 +23,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+
+    """
+        Variables that are being used in this local scope.
+    """
+    makeID = 949479338275913799
+    testingID = 1387221514553921626 
+
     """
         If i remember correctly, this command keeps the bot from replying to itself.
     """
