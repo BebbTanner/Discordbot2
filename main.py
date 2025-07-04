@@ -45,5 +45,8 @@ async def on_message(message):
         message_id = message.id
         print(f"Message ID from user: {message_id}")
 
+        specificChannel = client.get_channel(1387221514553921626)
+        await specificChannel.send("Fuck you")
+
 
 client.run(TOKEN)
