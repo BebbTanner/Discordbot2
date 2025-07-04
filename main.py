@@ -28,28 +28,15 @@ async def on_message(message):
         specificChannel = client.get_channel(1387221514553921626)
         await specificChannel.send("Fuck you")
     
-
-    """
-        This is a command that will forward and image in the bot testing channel.
-    I commented this out, I am not using it for the time being.
-    """
-    #if message.attachments:
-    #    for attachment in message.attachments:
-    #        if attachment.content_type.startswith('image'):
-    #            targetChannel = client.get_channel(1387221514553921626)
-    #            await targetChannel.send(attachment.url)
-
+                
     """
         This gets the message id for a message sent from a specific user, then
     sends Fuck you in a specific channel. This is going to be used to forward 
     messages to a specific channel.
     """
     if message.author.id == 949479338275913799:
-        message_id = message.id
-        print(f"Message ID from user: {message_id}")
-
         specificChannel = client.get_channel(1387221514553921626)
-        await specificChannel.send("Fuck you")
+        await specificChannel.send("This is from user MakeItAQuote.")
 
 
 client.run(TOKEN)
