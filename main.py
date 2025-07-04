@@ -46,19 +46,4 @@ async def on_message(message):
         print(f"Message ID from user: {message_id}")
 
 
-"""
-    This is a function that should get the message id of the previous message sent in chat. 
-This will be needed in order to foward a reply to a specific channel.
-"""
-@client.event
-async def get_message_from_user(ctx, user: discord.member):
-    channel = 1387221514553921626
-    messages = await channel.history(limit=100).flatten()
-
-    #This is my user ID for my discord profile, this will be changed later.
-    user_messages = [msg for msg in messages if msg.author == 949479338275913799]
-
-    for msg in user_messages:
-        print(f"Message ID: {msg.id}")
-
 client.run(TOKEN)
