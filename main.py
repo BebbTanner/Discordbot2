@@ -26,7 +26,7 @@ async def on_message(message):
     """
     if message.content.startswith('forward this'):
         specificChannel = client.get_channel(1387221514553921626)
-        await specificChannel.send(message.content)
+        await specificChannel.send("Fuck you")
     
 
     """
@@ -37,5 +37,28 @@ async def on_message(message):
             if attachment.content_type.startswith('image'):
                 targetChannel = client.get_channel(1387221514553921626)
                 await targetChannel.send(attachment.url)
+
+    """
+        This is for the on get_message_from_user
+    """
+    if message.author.id == 949479338275913799:
+        message_id = message.id
+        print(f"Message ID from user: {message_id}")
+
+
+"""
+    This is a function that should get the message id of the previous message sent in chat. 
+This will be needed in order to foward a reply to a specific channel.
+"""
+@client.event
+async def get_message_from_user(ctx, user: discord.member):
+    channel = 1387221514553921626
+    messages = await channel.history(limit=100).flatten()
+
+    #This is my user ID for my discord profile, this will be changed later.
+    user_messages = [msg for msg in messages if msg.author == 949479338275913799]
+
+    for msg in user_messages:
+        print(f"Message ID: {msg.id}")
 
 client.run(TOKEN)
