@@ -39,7 +39,9 @@ async def on_message(message):
                 await targetChannel.send(attachment.url)
 
     """
-        This is for the on get_message_from_user
+        This gets the message id for a message sent from a specific user, then
+    sends Fuck you in a specific channel. This is going to be used to forward 
+    messages to a specific channel.
     """
     if message.author.id == 949479338275913799:
         message_id = message.id
