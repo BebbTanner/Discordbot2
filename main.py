@@ -36,6 +36,6 @@ async def on_message(message):
         for attachment in message.attachments:
             if attachment.content_type.startswith('image'):
                 targetChannel = client.get_channel(1387221514553921626)
-                await targetChannel.reply(attachment.url)
+                await targetChannel.send(attachment.url)
 
 client.run(TOKEN)
