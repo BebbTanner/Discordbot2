@@ -1,8 +1,6 @@
 from discordBot import *
 import discord
 
-TOKEN = botToken
-
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -12,7 +10,6 @@ client = discord.Client(intents=intents)
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-
 @client.event
 async def on_message(message):
 
@@ -20,23 +17,16 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    """
-        If the message content starts with "foward this", the bot will then foward the message
-    to the bot testing channel.
-    """
-    if message.content.startswith('forward this'):
-        specificChannel = client.get_channel(1387221514553921626)
-        await specificChannel.send("Fuck you")
-    
-                
-    """
-        This gets the message id for a message sent from a specific user, then
-    sends Fuck you in a specific channel. This is going to be used to forward 
-    messages to a specific channel.
-    """
-    if message.author.id == 949479338275913799:
-        specificChannel = client.get_channel(1387221514553921626)
-        await specificChannel.send("This is from user MakeItAQuote.")
+    #This is getting the channelID and storing it to the new channel variable.
+    newChannel = client.get_channel(1387221514553921626)
+
+    #This is a loop that should be responding only to me in discord.
+    if message.author.id == tannerID and newChannel == 1387221514553921626:
+        targetChannel = client.get_channel(1309632891080413294)
+        
+        if targetChannel:
+            await targetChannel.send("Fuck you")
 
 
-client.run(TOKEN)
+
+client.run(botToken)
