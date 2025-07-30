@@ -9,6 +9,7 @@ client = commands.Bot(command_prefix="!", intents=intents)
 
 """
 tannerID = 205792085796716544
+makeItAQuote = 949479338275913799
 
 botTesting = 1387221514553921626
 """
@@ -26,6 +27,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     tannerID = 205792085796716544
+    makeItAQuote = 949479338275913799
 
     #Keeps the bot from getting stuck in and infinite loop.
     if message.author == client.user:
@@ -33,7 +35,7 @@ async def on_message(message):
     
     #Any time I type anything in any channel, This post my tag with my message 
     #in the bot testing channel.
-    if message.author.id == tannerID:#user id to foward this will be mine
+    if message.author.id == makeItAQuote:#user id to foward this will be mine
         destination_channel = client.get_channel(1387221514553921626)#destination channel
         await destination_channel.send(f"{message.author.name}: {message.content}")
     
