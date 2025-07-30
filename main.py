@@ -1,10 +1,11 @@
 from discordBot import *
+from discord.ext import commands
 import discord
 
 intents = discord.Intents.default()
 intents.message_content = True
 
-client = discord.Client(intents=intents)
+client = commands.Bot(command_prefix="!", intents=intents)
 
 """
 tannerID = 205792085796716544
@@ -30,7 +31,8 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    #This should reply to me and @ my discord account
+    #Any time I type anything in any channel, This post my tag with my message 
+    #in the bot testing channel.
     if message.author.id == tannerID:#user id to foward this will be mine
         destination_channel = client.get_channel(1387221514553921626)#destination channel
         await destination_channel.send(f"{message.author.name}: {message.content}")
