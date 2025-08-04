@@ -1,3 +1,8 @@
+"""
+    So the bot logs the reply from quote bot, but now I need to send the image that 
+quote bot is generating.
+"""
+
 from discordBot import *
 from discord.ext import commands
 import discord
