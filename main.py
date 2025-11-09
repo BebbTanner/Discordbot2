@@ -34,5 +34,12 @@ async def on_message(message):
 
     if message.mentions and message.mentions[0].id == client.user.id:
         await message.channel.send ("You called?")
-        
+
+    '''
+    This is an if statement that will look for the word steve in a message.
+    If it contains this keyword it will put in general kill steve.
+    '''
+    if 'steve' in message.content:
+        await message.channel.send("Kill steve")
+
 client.run(botToken)
