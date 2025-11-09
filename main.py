@@ -50,6 +50,12 @@ async def on_message(message):
         if 'True' in message.content:
             await message.channel.send(random.choice(trueResponses))
 
+        if 'false' in message.content:
+            await message.channel.send(random.choice(falseResponses))
+
+        if 'False' in message.content:
+            await message.channel.send(random.choice(falseResponses))
+
     '''
     This is an if statement that will look for the word steve in a message.
     If it contains this keyword it will put in general kill steve.
