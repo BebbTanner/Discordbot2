@@ -33,16 +33,15 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    targetUserId = 185152706208464896
-
-    if message.author.id == targetUserId:
-        await message.channel.send("You are smelly")
-
     '''
     This will reply to anyone that mentions the discordbot.
     '''
     if message.mentions and message.mentions[0].id == client.user.id:
-        await message.channel.send ("You called?")
+        if 'true' in message.content:
+            await message.channel.send("Yes this is true")
+        
+        if 'True' in message.content:
+            await message.channel.send("All fax no printer")
 
     '''
     This is an if statement that will look for the word steve in a message.
