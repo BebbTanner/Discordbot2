@@ -32,5 +32,7 @@ async def on_message(message):
     if message.author.id == targetUserId:
         await message.channel.send("You are smelly")
 
-    
+    if message.mentions and message.mentions[0].id == client.user.id:
+        await message.channel.send ("You called?")
+        
 client.run(botToken)
