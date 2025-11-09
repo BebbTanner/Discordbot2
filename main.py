@@ -1,19 +1,27 @@
-"""
-    So the bot logs the reply from quote bot, but now I need to send the image that 
-quote bot is generating.
-
-    Im still not sure as to why grok will not repost the image that quotebot generates.
-It might be because I don't have the exact file type that is created with make it a quote.
-"""
-
 from discordBot import *
 from discord.ext import commands
 import discord
+import random
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = commands.Bot(command_prefix="!", intents=intents)
+
+trueResponses = [
+    "CORRECT!",
+    "This is true.",
+    "All fax no printer."
+]
+
+falseResponses = [
+    "Kill yourself.",
+    "You could not be farther from the truth.",
+    "At no point in your rambling, incoherent response were ryou even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
+]
+
+trueRandom = random.choice(trueResponses)
+falseRandom = random.choice(falseResponses)
 
 """
     When the program executes, this sends a message to the console that 
@@ -38,10 +46,10 @@ async def on_message(message):
     '''
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'true' in message.content:
-            await message.channel.send("Yes this is true")
+            await message.channel.send(trueRandom)
         
         if 'True' in message.content:
-            await message.channel.send("All fax no printer")
+            await message.channel.send(trueRandom)
 
     '''
     This is an if statement that will look for the word steve in a message.
