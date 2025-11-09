@@ -27,6 +27,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
+    '''
+    This ignores any message that is sent by the bot.
+    '''
     if message.author == client.user:
         return
 
@@ -35,6 +38,9 @@ async def on_message(message):
     if message.author.id == targetUserId:
         await message.channel.send("You are smelly")
 
+    '''
+    This will reply to anyone that mentions the discordbot.
+    '''
     if message.mentions and message.mentions[0].id == client.user.id:
         await message.channel.send ("You called?")
 
@@ -43,6 +49,9 @@ async def on_message(message):
     If it contains this keyword it will put in general kill steve.
     '''
     if 'steve' in message.content:
+        await message.channel.send("Kill steve")
+
+    if 'feet' in message.content:
         await message.channel.send("Kill steve")
 
 client.run(botToken)
