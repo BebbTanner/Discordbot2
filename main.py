@@ -24,7 +24,13 @@ lets you know that it logged in correctly.
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
+@client.event
+async def on_message(message):
 
+    targetUserId = 185152706208464896
+
+    if message.author.id == targetUserId:
+        await message.channel.send("You are smelly")
 
     
 client.run(botToken)
