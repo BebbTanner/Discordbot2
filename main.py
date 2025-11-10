@@ -13,7 +13,8 @@ random.seed()
 trueResponses = [
     "CORRECT!",
     "This is true.",
-    "All fax no printer."
+    "All fax no printer.",
+    "Yeah it's true, Obamna said so."
 ]
 
 falseResponses = [
