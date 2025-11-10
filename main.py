@@ -57,4 +57,14 @@ async def on_message(message):
     if 'steve' in message.content:
         await message.channel.send("Kill steve")
 
+    
+    '''Detecting an image'''
+    if message.author.id == 205792085796716544:
+        if message.attachments:
+            for attachement in message.attachments:
+                if attachement.content_type and attachement.content_type.startswith('image/'):
+                    await message.channel.send("Attachment received!")
+
+    '''Sending a message to a specific channel'''
+
 client.run(botToken)
