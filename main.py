@@ -59,12 +59,14 @@ async def on_message(message):
 
     
     '''Detecting an image'''
-    if message.author.id == 205792085796716544:
-        if message.attachments:
-            for attachement in message.attachments:
-                if attachement.content_type and attachement.content_type.startswith('image/'):
-                    await message.channel.send("Attachment received!")
+    #if message.author.id == 205792085796716544:
+    #    if message.attachments:
+    #        for attachement in message.attachments:
+    #            if attachement.content_type and attachement.content_type.startswith('image/'):
+    #                await message.channel.send("Attachment received!")
 
     '''Sending a message to a specific channel'''
+
+    '''Deleting and edited message and resending it to another channel'''
 
 client.run(botToken)
