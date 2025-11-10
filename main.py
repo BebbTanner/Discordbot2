@@ -1,7 +1,18 @@
+'''
+I want to get back to the quote bot fowarding feature.
+Aaron brought up that the message is edited to send the image.
+So I think that there is a feature that deletes and edited message
+    then resends the edited message in another channel. This could 
+    be the piece of information that I was missing all this time.
+    Aaron was really helpful with pointing that out. So now maybe 
+    I can start moving in the right direction.
+'''
+
 from discordBot import *
 from discord.ext import commands
 import discord
 import random
+import logging
 
 intents = discord.Intents.default()
 intents.message_content = True
