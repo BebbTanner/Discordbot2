@@ -21,6 +21,7 @@ falseResponses = [
     "Kill yourself.",
     "You could not be farther from the truth.",
     "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
+    "That is incorrect."
 ]
 
 @client.event
