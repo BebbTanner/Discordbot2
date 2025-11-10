@@ -22,11 +22,6 @@ falseResponses = [
     "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
 ]
 
-"""
-    When the program executes, this sends a message to the console that 
-lets you know that it logged in correctly.
-"""
-
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
