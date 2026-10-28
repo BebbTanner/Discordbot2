@@ -150,7 +150,5 @@ async def on_message_edit(before, after):
 '''
     This is my bot token needed to make calls to the discord API
     I will eventually have to move this to a different file so that it is not accessbile to the public.
-
-    test
 '''
 client.run()
