@@ -18,9 +18,12 @@
     Once I have done that I think that I should be able to just change the user ID from me to quotebot then hopefully fully push out the feature.
 '''
 
+from email.mime import message
+
 from discord.ext import commands
 import random
 import discord
+import io
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -69,7 +72,6 @@ async def on_ready():
 '''
 @client.event
 async def on_message(message):
-
     '''
         This will check to see if the message came from the bot.
         If it came from the bot it will ignore that message.
@@ -77,10 +79,6 @@ async def on_message(message):
     '''
     if message.author == client.user:
         return
-
-
-
-
     '''
         If some one mentions the bot and asks if something is true or false, this command will trigger.
         It will take a random message for the true or false resposes and send it back in the channel it was tagged it.
@@ -99,8 +97,6 @@ async def on_message(message):
             elif randomint == 2:
                 await message.channel.send(random.choice(falseResponses))
     '''
-
-
     '''
         So this nested if-else statement should be checking to see if a specific user has sent and image attachement.
         Once it has detected that from that user it should send a message that says "attachement received".
@@ -117,17 +113,51 @@ async def on_message(message):
                     await message.channel.send("Attachment received!")
     '''
 
-
     '''
-        This is going to check to see if the message was sent from me.
-        Once it confirms that it was sent from me it will take the content of that message and send it back to the user.
+        So if this is enabled it will directly affect the forwarding of images.
+        I have no idea as to why, I will need to look more into this.
     '''
-
+    '''
     if message.author.id == 205792085796716544:
         await message.channel.send(message.content)
 
     await client.process_commands(message)
+    '''
 
+
+
+
+    if message.author.id == 205792085796716544:
+        if message.attachments:
+            for attachment in message.attachments:
+                if attachment.content_type and "image" in attachment.content_type:
+                    dest_channel = client.get_channel(1565036139310751795)
+                    
+                    # Fallback: If cache misses, try fetching over the API
+                    if not dest_channel:
+                        try:
+                            dest_channel = await client.fetch_channel(1565036139310751795)
+                        except discord.HTTPException:
+                            print("Could not find the destination channel.")
+                            continue
+
+                    try:
+                        # Safer method: Read bytes directly to create the file object
+                        file_bytes = await attachment.read()
+                        file_to_send = discord.File(
+                            fp=io.BytesIO(file_bytes), 
+                            filename=attachment.filename
+                        )
+                        
+                        # Content is explicitly provided to prevent the 50006 error
+                        await dest_channel.send(
+                            # content=f"📷 Image forwarded from {message.author.mention}",
+                            file=file_to_send
+                        )
+                    except Exception as e:
+                        print(f"Failed to forward image: {e}")
+
+    await client.process_commands(message)
 
 
 '''
@@ -147,6 +177,7 @@ async def on_message_edit(before, after):
         if after.author.id == 205792085796716544:
             if before.content != after.content:
                 await target_channel.send(f"{after.content}")
+
 
 
 
