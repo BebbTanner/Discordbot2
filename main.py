@@ -138,7 +138,7 @@ async def on_message_edit(before, after):
             if before.content != after.content:
                 # Send the new content to the same channel where it was edited
                 await after.channel.send(
-                    f"**{after.author.name}** just edited their message to:\n{after.content}"
+                    f"{after.content}"
                 )
 
                 # ALTERNATIVE: Send to a specific channel instead
