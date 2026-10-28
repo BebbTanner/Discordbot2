@@ -1,11 +1,21 @@
 '''
-I want to get back to the quote bot fowarding feature.
-Aaron brought up that the message is edited to send the image.
-So I think that there is a feature that deletes and edited message
-    then resends the edited message in another channel. This could 
-    be the piece of information that I was missing all this time.
-    Aaron was really helpful with pointing that out. So now maybe 
-    I can start moving in the right direction.
+    So I know that it has been awhile, but I would like to get back to this. 
+    I think I might finially have an understanding as to how this works.
+
+    The user will tag quotebot the a reply to the message the the user wants an image generated of
+
+    Quotebot will send and initial image that says, "Generating image"
+
+    Once quotebot has generated the image it will then edit the original message with the quote image that it has created.
+
+    So, this entire time I have been attempting to grab the intial message the bot has been sending rather than tryhing to grab the image off of the updated message.
+    Atleast that is how I see it, so I think the first place to start would be to see if I can get Gorp to grab an edited message from me.
+    
+    Once I have done that I think the next thing would to be to get gorp to recogonize and image that is sent from me.
+
+    Then I think that I can then combine those two features still testing it using something that I sent.
+
+    Once I have done that I think that I should be able to just change the user ID from me to quotebot then hopefully fully push out the feature.
 '''
 
 from discordBot import *
