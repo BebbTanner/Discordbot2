@@ -117,12 +117,13 @@ async def on_message(message):
         This is going to check to see if the message was sent from me.
         Once it confirms that it was sent from me it will take the content of that message and send it back to the user.
     '''
+    '''
     if message.author.id == 205792085796716544:
         await message.channel.send(message.content)
 
     # Required to let the bot process standard commands alongside on_message
     await client.process_commands(message)
-
+    '''
 
 
 '''
