@@ -16,6 +16,8 @@
     Then I think that I can then combine those two features still testing it using something that I sent.
 
     Once I have done that I think that I should be able to just change the user ID from me to quotebot then hopefully fully push out the feature.
+
+    test
 '''
 
 from discord.ext import commands
