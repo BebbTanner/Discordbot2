@@ -56,7 +56,6 @@ falseResponses = [
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-    #Wait for internal cache to load
     await client.wait_until_ready() 
 
 
@@ -124,7 +123,6 @@ async def on_message(message):
     if message.author.id == 205792085796716544:
         await message.channel.send(message.content)
 
-    # Required to let the bot process standard commands alongside on_message
     await client.process_commands(message)
 
 
@@ -142,16 +140,9 @@ async def on_message_edit(before, after):
 
         target_channel = client.get_channel(1565036139310751795)
 
-        # Check if the message was edited by the specific user
         if after.author.id == 205792085796716544:
-            # Check if the content actually changed (ignoring embed/pin changes)
             if before.content != after.content:
-                # Send the new content to the same channel where it was edited
                 await target_channel.send(f"{after.content}")
-
-                # ALTERNATIVE: Send to a specific channel instead
-                # target_channel = bot.get_channel(YOUR_CHANNEL_ID_HERE)
-                # await target_channel.send(f"New text: {after.content}")
 
 
 
