@@ -129,6 +129,11 @@ async def on_message(message):
 '''
     In theory this should be listening to see if the message that I originally sent was edited.
     If it was edited the bot should resend the new updated message to the same channel that it was edited in.
+
+    Now I need to take this and make it so that gorp will take the edited message and send it to a differnt text channel.
+    So, currently the message is being received in the bot testing channel and gorp is sending the edited message to the bot testing channel.
+    I instead want gorp to take the edited message and send it to the quotes channel.
+    So I will need the channel ID for the qutotes channel, which I have not created yet.
 '''
 @client.event
 async def on_message_edit(before, after):
