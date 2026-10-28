@@ -2,22 +2,39 @@
     Current working features:
     Can forward an edited message from bot testing channel to quotes channel.
     Can forward an image from bot testing channel to quotes channel.
+
+    So now that I have this image forwaring thingy working, I think the next thing to do is to nest this in the message edit event.
+    I think the best current plan of action is to study this porition of the code because I just ripped it off of Gemini.
+    Forgive for I have sinned and I stolen code, but unlike the others I must study this in order to properly manulipate it for my own desires.
+
+    So now I need to very carefully find a way to combine those two features so that I can finally get the end result that I want.
+
+    This is a funny tool that will help me later.
+    content=f"📷 Image forwarded from {message.author.mention}",
 '''
 
-from email.mime import message
+
 
 from discord.ext import commands
 import random
 import discord
 import io
 
+
+
 intents = discord.Intents.default()
 intents.message_content = True
 intents.messages = True
 
+
+
 client = commands.Bot(command_prefix="!", intents=intents)
 
+
+
 random.seed()
+
+
 
 trueResponses = [
     "CORRECT!",
@@ -32,40 +49,21 @@ falseResponses = [
     "That is incorrect."
 ]
 
+
+
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
+
+
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    '''
-    if message.mentions and message.mentions[0].id == client.user.id:
-        if 'rue' in message.content:
-            randomint = random.randint(1,2)
 
-            if randomint == 1:
-                await message.channel.send(random.choice(trueResponses))
 
-            elif randomint == 2:
-                await message.channel.send(random.choice(falseResponses))
-    '''
-
-    '''
-    if message.author.id == 205792085796716544:
-        await message.channel.send(message.content)
-
-    await client.process_commands(message)
-    '''
-
-    '''
-        So now that I have this image forwaring thingy working, I think the next thing to do is to nest this in the message edit event.
-        That seems like it is probably going to take some time to figure out.
-        I think the best current plan of action is to study this porition of the code because I just ripped it off of Gemini.
-        Forgive for I have sinned and I stolen code, but unlike the others I must study this in order to properly manulipate it for my own desires.
-    '''
     if message.author.id == 205792085796716544:
         if message.attachments:
             for attachment in message.attachments:
@@ -90,13 +88,33 @@ async def on_message(message):
                         
                         # Content is explicitly provided to prevent the 50006 error
                         await dest_channel.send(
-                            # content=f"📷 Image forwarded from {message.author.mention}",
                             file=file_to_send
                         )
                     except Exception as e:
                         print(f"Failed to forward image: {e}")
 
     await client.process_commands(message)
+
+    '''
+    if message.mentions and message.mentions[0].id == client.user.id:
+        if 'rue' in message.content:
+            randomint = random.randint(1,2)
+
+            if randomint == 1:
+                await message.channel.send(random.choice(trueResponses))
+
+            elif randomint == 2:
+                await message.channel.send(random.choice(falseResponses))
+    '''
+
+    '''
+    if message.author.id == 205792085796716544:
+        await message.channel.send(message.content)
+
+    await client.process_commands(message)
+    '''
+
+
 
 @client.event
 async def on_message_edit(before, after):
