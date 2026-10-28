@@ -56,7 +56,6 @@ falseResponses = [
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-    await client.wait_until_ready() 
 
 
 
