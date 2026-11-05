@@ -1,4 +1,4 @@
-# Libraries 
+# Libraries
 
 from discord.ext import commands
 from tokens import *
