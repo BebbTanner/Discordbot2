@@ -3,6 +3,7 @@
 from discord.ext import commands
 from tokens import *
 from dataFile import *
+from assets import *
 import random
 import discord
 import io
@@ -46,12 +47,12 @@ async def on_message(message):
 
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'bde' in message.content or 'BDE' in message.content:
-            await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
+            await message.channel.send(f"{message.author.mention} has {randomPercent}% big dick energy.")
 
     # Nice
 
-    if '69' in message.content:
-        await message.channel.send("Nice")
+#    if '69' in message.content:
+#        await message.channel.send("Nice")
 
     # Steve mentioning fart
 
@@ -63,6 +64,11 @@ async def on_message(message):
 
     if 'abby' in message.content or 'Abby' in message.content:
         await message.channel.send('*Abi')
+
+    # She's not coming back.
+
+    if 'more alcohol' in message.content:
+        await message.channel.send("She's not coming back.")
 
     '''
     # Resend image function

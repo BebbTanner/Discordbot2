@@ -32,3 +32,7 @@ steveResponse = [
 tannerResponses = [
     "Wouldn't you like to know weather boy.",
 ]
+
+moreAlchol = [
+    "She's not coming back.",
+]
