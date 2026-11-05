@@ -1,30 +1,11 @@
-'''
-    So I think I now want to take the channel IDs, userIDs, and bot token and place it in a different file then make that file private
-'''
-
 # Libraries 
 
 from discord.ext import commands
 from tokens import *
+from dataFile import *
 import random
 import discord
 import io
-
-# Global varibles?
-
-trueResponses = [
-"CORRECT!",
-"This is true.",
-"All fax no printer.",
-"Yeah it's true, Obamna said so."
-]
-
-falseResponses = [
-"Kill yourself.",
-"You could not be farther from the truth.",
-"At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
-"That is incorrect."
-]
 
 # Bot configuration
 
@@ -67,7 +48,7 @@ async def on_message(message):
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'bde' in message.content or 'BDE' in message.content:
             await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
-            
+
     '''
     # Resend image function
 
