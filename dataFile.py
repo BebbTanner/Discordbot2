@@ -2,6 +2,8 @@
     This is just me trying to compartmentalize the data to a header file.
 
     Im hoping that this will be beneficial in the long run, and if not I can just move this data back to the main file.
+
+    I needed to import the tokens file in able to access user IDs so that I can tag users in this data file.
 '''
 
 from tokens import *
