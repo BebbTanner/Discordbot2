@@ -1,43 +1,31 @@
-'''
-    Current working features:
-    Can forward an edited message from bot testing channel to quotes channel.
-    Can forward an image from bot testing channel to quotes channel.
-'''
+# Libraries 
 
 from discord.ext import commands
 import random
 import discord
 
+# Bot configuration
+
 intents = discord.Intents.default()
 intents.message_content = True
 intents.messages = True
-
 client = discord.Client(intents=intents)
-
 client = commands.Bot(command_prefix="!", intents=intents)
 
 random.seed()
-
-trueResponses = [
-    "CORRECT!",
-    "This is true.",
-    "All fax no printer.",
-    "Yeah it's true, Obamna said so."
-]
-falseResponses = [
-    "Kill yourself.",
-    "You could not be farther from the truth.",
-    "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
-    "That is incorrect."
-]
 
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
 async def on_message(message):
+
+    # Ignore bot respose
+
     if message.author == client.user:
         return
+
+    # Resend image function
 
     if message.author.id == 205792085796716544:
         if message.attachments:
@@ -70,11 +58,21 @@ async def on_message(message):
 
     await client.process_commands(message)
 
+    # True or False function
 
-    '''
-        This function works kind of?
-        This sends a response, but it sends the uh command and not the content that the command.
-    '''
+    trueResponses = [
+    "CORRECT!",
+    "This is true.",
+    "All fax no printer.",
+    "Yeah it's true, Obamna said so."
+    ]
+
+    falseResponses = [
+    "Kill yourself.",
+    "You could not be farther from the truth.",
+    "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
+    "That is incorrect."
+    ]
 
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'rue' in message.content:
@@ -86,15 +84,7 @@ async def on_message(message):
             elif randomint == 2:
                 await message.channel.send(f"{message.author.mention} random.choice(trueResponses)")
 
-    '''
-        Ok so this is set up to check and see if the user mentioned the bot and if the message contains a specific string.
-        If it meets both of the parameters it will reply back to the use "bde confirmed"
-
-        I am sure that there is a more efficent way to do this but I am unaware as to how to.
-        So these two functions are set up to just confirm my test.
-
-        Now I want set it up to generate a number from 0 to 100 and then output that to the channel.
-    '''
+    # BDE function
 
     randomPercent = random.choice(range(101))
 
@@ -106,9 +96,8 @@ async def on_message(message):
         if 'BDE' in message.content:
             await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
 
-'''
-    This is to take an edited message from a specific user then send that edited message to a new text channel-
-'''
+# Edit message resend function
+
 @client.event
 async def on_message_edit(before, after):
 
@@ -117,5 +106,7 @@ async def on_message_edit(before, after):
         if after.author.id == 205792085796716544:
             if before.content != after.content:
                 await target_channel.send(f"{after.content}")
+
+# Run function, bot token required
 
 client.run()
