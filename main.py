@@ -35,7 +35,6 @@ falseResponses = [
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-@client.event
 async def on_message(message):
     if message.author == client.user:
         return
@@ -106,8 +105,6 @@ async def on_message(message):
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'BDE' in message.content:
             await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
-
-
 
 '''
     This is to take an edited message from a specific user then send that edited message to a new text channel-
