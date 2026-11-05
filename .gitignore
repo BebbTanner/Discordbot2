@@ -208,5 +208,4 @@ __marimo__/
 
 
 #python file
-discordBot.py
-botTokens.py
+tokens.py

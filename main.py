@@ -1,9 +1,15 @@
+'''
+    So I think I now want to take the channel IDs, userIDs, and bot token and place it in a different file then make that file private
+'''
+
 # Libraries 
 
 from discord.ext import commands
 import random
 import discord
 import io
+
+# Global varibles?
 
 trueResponses = [
 "CORRECT!",
@@ -27,7 +33,6 @@ intents.message_content = True
 intents.messages = True
 client = discord.Client(intents=intents)
 client = commands.Bot(command_prefix="!", intents=intents)
-
 random.seed()
 
 @client.event
