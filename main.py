@@ -114,6 +114,9 @@ async def on_message(message):
     await client.process_commands(message)
     '''
 
+    if client.user.mentioned_in(message):
+        await message.channel.send("This is a test")
+
 
 
 @client.event
