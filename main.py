@@ -40,7 +40,6 @@ async def on_message(message):
             elif randomint == 2:
                 await message.channel.send(f"{message.author.mention} {random.choice(falseResponses)}")
     
-
     # BDE function
 
     randomPercent = random.choice(range(101))
@@ -48,6 +47,11 @@ async def on_message(message):
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'bde' in message.content or 'BDE' in message.content:
             await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
+
+    # Nice
+
+    if '69' in message.content:
+        await message.channel.send("Nice")
 
     '''
     # Resend image function
@@ -84,8 +88,6 @@ async def on_message(message):
     await client.process_commands(message)
 
     '''
-
-
 
 '''
 This function is not finished, I am tryihng to combine this with the resend image function.
