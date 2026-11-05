@@ -34,6 +34,7 @@ random.seed()
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
+@client.event
 async def on_message(message):
 
     # Ignore bot respose
@@ -76,28 +77,23 @@ async def on_message(message):
 
     # True or False function
 
-    '''
     if message.mentions and message.mentions[0].id == client.user.id:
-        if 'rue' in message.content:
+        if 'true' in message.content or 'TRUE' in message.content:
             randomint = random.randint(1,2)
 
             if randomint == 1:
-                await message.channel.send(random.choice(trueResponses))
+                await message.channel.send(f"{message.author.mention} {random.choice(trueResponses)}")
 
             elif randomint == 2:
-                await message.channel.send(random.choice(falseResponses))
-    '''
+                await message.channel.send(f"{message.author.mention} {random.choice(falseResponses)}")
+    
 
     # BDE function
 
     randomPercent = random.choice(range(101))
 
     if message.mentions and message.mentions[0].id == client.user.id:
-        if 'bde' in message.content:
-            await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
-
-    if message.mentions and message.mentions[0].id == client.user.id:
-        if 'BDE' in message.content:
+        if 'bde' in message.content or 'BDE' in message.content:
             await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
 
 # Edit message resend function
