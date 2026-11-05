@@ -26,7 +26,6 @@ falseResponses = [
 "That is incorrect."
 ]
 
-
 # Bot configuration
 
 intents = discord.Intents.default()
@@ -48,6 +47,28 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+        # True or False function
+
+    if message.mentions and message.mentions[0].id == client.user.id:
+        if 'true' in message.content or 'TRUE' in message.content:
+            randomint = random.randint(1,2)
+
+            if randomint == 1:
+                await message.channel.send(f"{message.author.mention} {random.choice(trueResponses)}")
+
+            elif randomint == 2:
+                await message.channel.send(f"{message.author.mention} {random.choice(falseResponses)}")
+    
+
+    # BDE function
+
+    randomPercent = random.choice(range(101))
+
+    if message.mentions and message.mentions[0].id == client.user.id:
+        if 'bde' in message.content or 'BDE' in message.content:
+            await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
+            
+    '''
     # Resend image function
 
     if message.author.id == uncleFungusID:
@@ -81,26 +102,12 @@ async def on_message(message):
 
     await client.process_commands(message)
 
-    # True or False function
+    '''
 
-    if message.mentions and message.mentions[0].id == client.user.id:
-        if 'true' in message.content or 'TRUE' in message.content:
-            randomint = random.randint(1,2)
 
-            if randomint == 1:
-                await message.channel.send(f"{message.author.mention} {random.choice(trueResponses)}")
 
-            elif randomint == 2:
-                await message.channel.send(f"{message.author.mention} {random.choice(falseResponses)}")
-    
-
-    # BDE function
-
-    randomPercent = random.choice(range(101))
-
-    if message.mentions and message.mentions[0].id == client.user.id:
-        if 'bde' in message.content or 'BDE' in message.content:
-            await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
+'''
+This function is not finished, I am tryihng to combine this with the resend image function.
 
 # Edit message resend function
 
@@ -109,9 +116,12 @@ async def on_message_edit(before, after):
 
         target_channel = client.get_channel(quotesChannelID)
 
+        # Eventually this ID will need to be changed to the quotebot ID.
+
         if after.author.id == uncleFungusID:
             if before.content != after.content:
                 await target_channel.send(f"{after.content}")
+'''
 
 # Run function, bot token required
 
