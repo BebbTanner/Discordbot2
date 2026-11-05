@@ -8,6 +8,8 @@ import random
 import discord
 import io
 
+# assets\lolbom.png
+
 # Bot configuration
 
 intents = discord.Intents.default()
