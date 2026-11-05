@@ -57,7 +57,7 @@ async def on_message(message):
 
     if message.author.id == litebriteID:
         if 'fart' in message.content:
-            await message.channel.send(f"{shrimpwizID} come get your man.")
+            await message.channel.send(f"{random.choice(steveResponse)}")
 
     # Get her got damned name right.
 
