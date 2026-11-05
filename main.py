@@ -18,7 +18,7 @@ random.seed()
 
 @client.event
 async def on_ready():
-    print(f'We have logged in as {client.user}')
+    print('Gorp 1.0 is online.')
 
 @client.event
 async def on_message(message):
