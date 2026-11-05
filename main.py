@@ -120,7 +120,7 @@ async def on_message(message):
 
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'BDE' in message.content:
-            await message.channel.send(f"{randomPercent}")
+            await message.channel.send(f"{message.author.mention} has {randomPercent}% bde.")
 
 
 
