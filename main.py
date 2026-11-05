@@ -5,6 +5,21 @@ import random
 import discord
 import io
 
+trueResponses = [
+"CORRECT!",
+"This is true.",
+"All fax no printer.",
+"Yeah it's true, Obamna said so."
+]
+
+falseResponses = [
+"Kill yourself.",
+"You could not be farther from the truth.",
+"At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
+"That is incorrect."
+]
+
+
 # Bot configuration
 
 intents = discord.Intents.default()
@@ -61,29 +76,17 @@ async def on_message(message):
 
     # True or False function
 
-    trueResponses = [
-    "CORRECT!",
-    "This is true.",
-    "All fax no printer.",
-    "Yeah it's true, Obamna said so."
-    ]
-
-    falseResponses = [
-    "Kill yourself.",
-    "You could not be farther from the truth.",
-    "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
-    "That is incorrect."
-    ]
-
+    '''
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'rue' in message.content:
             randomint = random.randint(1,2)
 
             if randomint == 1:
-                await message.channel.send(f"{message.author.mention} random.choice(trueResponses)")
+                await message.channel.send(random.choice(trueResponses))
 
             elif randomint == 2:
-                await message.channel.send(f"{message.author.mention} random.choice(trueResponses)")
+                await message.channel.send(random.choice(falseResponses))
+    '''
 
     # BDE function
 
