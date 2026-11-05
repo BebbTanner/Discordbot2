@@ -5,6 +5,7 @@
 # Libraries 
 
 from discord.ext import commands
+from tokens import *
 import random
 import discord
 import io
@@ -49,16 +50,16 @@ async def on_message(message):
 
     # Resend image function
 
-    if message.author.id == 205792085796716544:
+    if message.author.id == uncleFungusID:
         if message.attachments:
             for attachment in message.attachments:
                 if attachment.content_type and "image" in attachment.content_type:
-                    dest_channel = client.get_channel(1565036139310751795)
+                    dest_channel = client.get_channel(quotesChannelID)
                     
                     # Fallback: If cache misses, try fetching over the API
                     if not dest_channel:
                         try:
-                            dest_channel = await client.fetch_channel(1565036139310751795)
+                            dest_channel = await client.fetch_channel(quotesChannelID)
                         except discord.HTTPException:
                             print("Could not find the destination channel.")
                             continue
@@ -106,12 +107,12 @@ async def on_message(message):
 @client.event
 async def on_message_edit(before, after):
 
-        target_channel = client.get_channel(1565036139310751795)
+        target_channel = client.get_channel(quotesChannelID)
 
-        if after.author.id == 205792085796716544:
+        if after.author.id == uncleFungusID:
             if before.content != after.content:
                 await target_channel.send(f"{after.content}")
 
 # Run function, bot token required
 
-client.run()
+client.run(botToken)
