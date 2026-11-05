@@ -15,6 +15,8 @@
 
 
 
+from email import message
+
 from discord.ext import commands
 import random
 import discord
@@ -26,7 +28,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.messages = True
 
-
+client = discord.Client(intents=intents)
 
 client = commands.Bot(command_prefix="!", intents=intents)
 
@@ -62,8 +64,6 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-
-
     if message.author.id == 205792085796716544:
         if message.attachments:
             for attachment in message.attachments:
@@ -95,7 +95,6 @@ async def on_message(message):
 
     await client.process_commands(message)
 
-    '''
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'rue' in message.content:
             randomint = random.randint(1,2)
@@ -105,17 +104,7 @@ async def on_message(message):
 
             elif randomint == 2:
                 await message.channel.send(random.choice(falseResponses))
-    '''
 
-    '''
-    if message.author.id == 205792085796716544:
-        await message.channel.send(message.content)
-
-    await client.process_commands(message)
-    '''
-
-    if client.user.mentioned_in(message):
-        await message.channel.send("This is a test")
 
 
 
