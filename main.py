@@ -102,6 +102,23 @@ async def on_message(message):
             elif randomint == 2:
                 await message.channel.send(random.choice(falseResponses))
 
+    '''
+        Ok so this is set up to check and see if the user mentioned the bot and if the message contains a specific string.
+        If it meets both of the parameters it will reply back to the use "bde confirmed"
+
+        I am sure that there is a more efficent way to do this but I am unaware as to how to.
+        So these two functions are set up to just confirm my test.
+
+        Now I want set it up to generate a number from 0 to 100 and then output that to the channel.
+    '''
+    if message.mentions and message.mentions[0].id == client.user.id:
+        if 'bde' in message.content:
+            await message.channel.send("BDE confirmed")
+
+    if message.mentions and message.mentions[0].id == client.user.id:
+        if 'BDE' in message.content:
+            await message.channel.send("BDE confirmed")
+
 
 @client.event
 async def on_message_edit(before, after):
