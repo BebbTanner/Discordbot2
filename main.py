@@ -111,15 +111,22 @@ async def on_message(message):
 
         Now I want set it up to generate a number from 0 to 100 and then output that to the channel.
     '''
+
+    randomPercent = random.choice(range(101))
+
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'bde' in message.content:
-            await message.channel.send("BDE confirmed")
+            await message.channel.send(f"{randomPercent}")
 
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'BDE' in message.content:
-            await message.channel.send("BDE confirmed")
+            await message.channel.send(f"{randomPercent}")
 
 
+
+'''
+    This is to take an edited message from a specific user then send that edited message to a new text channel-
+'''
 @client.event
 async def on_message_edit(before, after):
 
