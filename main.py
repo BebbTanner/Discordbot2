@@ -59,6 +59,11 @@ async def on_message(message):
         if 'fart' in message.content:
             await message.channel.send(f"{shrimpwizID} come get your man.")
 
+    # Get her got damned name right.
+
+    if 'abby' in message.content or 'Abby' in message.content:
+        await message.channel.send('*Abi')
+
     '''
     # Resend image function
 
