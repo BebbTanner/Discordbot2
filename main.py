@@ -2,20 +2,7 @@
     Current working features:
     Can forward an edited message from bot testing channel to quotes channel.
     Can forward an image from bot testing channel to quotes channel.
-
-    So now that I have this image forwaring thingy working, I think the next thing to do is to nest this in the message edit event.
-    I think the best current plan of action is to study this porition of the code because I just ripped it off of Gemini.
-    Forgive for I have sinned and I stolen code, but unlike the others I must study this in order to properly manulipate it for my own desires.
-
-    So now I need to very carefully find a way to combine those two features so that I can finally get the end result that I want.
-
-    This is a funny tool that will help me later.
-    content=f"📷 Image forwarded from {message.author.mention}",
 '''
-
-
-
-from email import message
 
 from discord.ext import commands
 import random
