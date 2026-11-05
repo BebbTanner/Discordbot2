@@ -73,9 +73,8 @@ async def on_message(message):
 
 
     '''
-        I think that I need to disect this snipet.
-        If I can rmember how this works I should be able to use it to figure out my BDE function.
-        This is the function that was used it toddbot that I think would be really fun to have.
+        This function works kind of?
+        This sends a response, but it sends the uh command and not the content that the command.
     '''
 
     if message.mentions and message.mentions[0].id == client.user.id:
@@ -83,10 +82,10 @@ async def on_message(message):
             randomint = random.randint(1,2)
 
             if randomint == 1:
-                await message.channel.send(random.choice(trueResponses))
+                await message.channel.send(f"{message.author.mention} random.choice(trueResponses)")
 
             elif randomint == 2:
-                await message.channel.send(random.choice(falseResponses))
+                await message.channel.send(f"{message.author.mention} random.choice(trueResponses)")
 
     '''
         Ok so this is set up to check and see if the user mentioned the bot and if the message contains a specific string.
