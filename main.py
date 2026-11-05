@@ -26,7 +26,6 @@ falseResponses = [
 "That is incorrect."
 ]
 
-
 # Bot configuration
 
 intents = discord.Intents.default()
