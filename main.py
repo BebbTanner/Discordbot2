@@ -22,8 +22,6 @@ import random
 import discord
 import io
 
-
-
 intents = discord.Intents.default()
 intents.message_content = True
 intents.messages = True
@@ -32,11 +30,7 @@ client = discord.Client(intents=intents)
 
 client = commands.Bot(command_prefix="!", intents=intents)
 
-
-
 random.seed()
-
-
 
 trueResponses = [
     "CORRECT!",
@@ -51,13 +45,9 @@ falseResponses = [
     "That is incorrect."
 ]
 
-
-
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
-
-
 
 @client.event
 async def on_message(message):
@@ -95,6 +85,13 @@ async def on_message(message):
 
     await client.process_commands(message)
 
+
+    '''
+        I think that I need to disect this snipet.
+        If I can rmember how this works I should be able to use it to figure out my BDE function.
+        This is the function that was used it toddbot that I think would be really fun to have.
+    '''
+
     if message.mentions and message.mentions[0].id == client.user.id:
         if 'rue' in message.content:
             randomint = random.randint(1,2)
@@ -104,8 +101,6 @@ async def on_message(message):
 
             elif randomint == 2:
                 await message.channel.send(random.choice(falseResponses))
-
-
 
 
 @client.event
