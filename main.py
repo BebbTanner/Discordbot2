@@ -53,6 +53,12 @@ async def on_message(message):
     if '69' in message.content:
         await message.channel.send("Nice")
 
+    # Steve mentioning fart
+
+    if message.author.id == litebriteID:
+        if 'fart' in message.content:
+            await message.channel.send(f"{shrimpwizID} come get your man.")
+
     '''
     # Resend image function
 
