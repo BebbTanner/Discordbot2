@@ -23,23 +23,23 @@ import io
 intents = discord.Intents.default()
 intents.message_content = True
 intents.messages = True
-client = discord.Client(intents=intents)
-client = commands.Bot(command_prefix="!", intents=intents)
+Gorp = discord.Client(intents=intents)
+Gorp = commands.Bot(command_prefix="!", intents=intents)
 random.seed()
 
-@client.event
+@Gorp.event
 async def on_ready():
     print('Gorp 1.0 is online.')
 
-@client.event
+@Gorp.event
 async def on_message(message):
 
     # Ignore bot respose
-    if message.author == client.user:
+    if message.author == Gorp.user:
         return
 
     # True or False function
-    if message.mentions and message.mentions[0].id == client.user.id:
+    if message.mentions and message.mentions[0].id == Gorp.user.id:
         if 'true' in message.content or 'TRUE' in message.content:
             randomint = random.randint(1,2)
 
@@ -52,7 +52,7 @@ async def on_message(message):
     # BDE function
     randomPercent = random.choice(range(101))
 
-    if message.mentions and message.mentions[0].id == client.user.id:
+    if message.mentions and message.mentions[0].id == Gorp.user.id:
         if 'bde' in message.content or 'BDE' in message.content:
             await message.channel.send(f"{message.author.mention} has {randomPercent}% big dick energy.")
 
@@ -65,4 +65,4 @@ async def on_message(message):
         await message.channel.send("She's not coming back.")
 
 # Run function, bot token required
-client.run(botToken)
+Gorp.run(botToken)
