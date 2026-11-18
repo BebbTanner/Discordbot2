@@ -58,7 +58,7 @@ async def on_message(message):
 
     # Get her got damned name right.
     if 'abby' in message.content or 'Abby' in message.content:
-        await message.channel.send('*Abi')
+        await message.channel.send(f"{random.choice(abiResponese)}")
 
     # She's not coming back.
     if 'more alcohol' in message.content:

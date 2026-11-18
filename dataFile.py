@@ -18,7 +18,11 @@ trueResponses = [
 falseResponses = [
     "Kill yourself.",
     "You could not be farther from the truth.",
-    "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. Everyone is this room is now dumber for hearing it. I award you no points, and may God have mercy on your soul.",
+
+    "At no point in your rambling, incoherent response were you even close to anything that could be considered a rational thought. "
+    "Everyone is this room is now dumber for hearing it. "
+    "I award you no points, and may God have mercy on your soul.",
+    
     "That is incorrect."
 ]
 
@@ -35,4 +39,9 @@ tannerResponses = [
 
 moreAlchol = [
     "She's not coming back.",
+]
+
+abiResponese = [
+    "*Abi",
+    "Get her god damned name right.",
 ]
