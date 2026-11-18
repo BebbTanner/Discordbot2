@@ -26,55 +26,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    # Ignore bot respose
-
-    if message.author == client.user:
-        return
-
-        # True or False function
-
-    if message.mentions and message.mentions[0].id == client.user.id:
-        if 'true' in message.content or 'TRUE' in message.content:
-            randomint = random.randint(1,2)
-
-            if randomint == 1:
-                await message.channel.send(f"{message.author.mention} {random.choice(trueResponses)}")
-
-            elif randomint == 2:
-                await message.channel.send(f"{message.author.mention} {random.choice(falseResponses)}")
-    
-    # BDE function
-
-    randomPercent = random.choice(range(101))
-
-    if message.mentions and message.mentions[0].id == client.user.id:
-        if 'bde' in message.content or 'BDE' in message.content:
-            await message.channel.send(f"{message.author.mention} has {randomPercent}% big dick energy.")
-
-    # Nice
-
-#    if '69' in message.content:
-#        await message.channel.send("Nice")
-
-    # Steve mentioning fart
-
-    if message.author.id == litebriteID:
-        if 'fart' in message.content:
-            await message.channel.send(f"{random.choice(steveResponse)}")
-
-    # Get her got damned name right.
-
-    if 'abby' in message.content or 'Abby' in message.content:
-        await message.channel.send('*Abi')
-
-    # She's not coming back.
-
-    if 'more alcohol' in message.content:
-        await message.channel.send("She's not coming back.")
-
     '''
     # Resend image function
-
     if message.author.id == uncleFungusID:
         if message.attachments:
             for attachment in message.attachments:
@@ -105,8 +58,8 @@ async def on_message(message):
                         print(f"Failed to forward image: {e}")
 
     await client.process_commands(message)
-
     '''
+
 
 '''
 This function is not finished, I am tryihng to combine this with the resend image function.
