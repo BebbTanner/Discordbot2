@@ -1,6 +1,9 @@
 '''
     So it looks like with make it a quote I can just get the bot itself to target a specific channel.
     I am going to mess with those settings today, and if that works then I guess I can just use gorp for something else.
+
+    So you can redirect quote messages with the quotebot.
+    Which means I can now just do what I want with gorp.
 '''
 
 # Libraries
